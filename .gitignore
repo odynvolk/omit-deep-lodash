@@ -1,0 +1,11 @@
+# Dependency directory and npm log
+node_modules
+
+# OS X
+.DS_Store
+
+# Visual studio code
+.vscode/
+
+# IntelliJ etc
+.idea

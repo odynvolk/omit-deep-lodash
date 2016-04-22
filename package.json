@@ -1,0 +1,41 @@
+{
+  "name": "omit-deep-lodash",
+  "description": "Omit object key/values recursively with lodash as only dependency.",
+  "version": "0.8.0",
+  "homepage": "https://github.com/odynvolk/omit-deep-lodash",
+  "author": "Alexi Rahman (https://github.com/odynvolk)",
+  "repository": "odynvolk/omit-deep-lodash",
+  "bugs": {
+    "url": "https://odynvolk/omit-deep-lodash/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "lodash": "^4.11.1"
+  },
+  "devDependencies": {
+    "should": "^8.3.1"
+  },
+  "keywords": [
+    "deep",
+    "omit",
+    "key",
+    "keys",
+    "delete",
+    "remove",
+    "object",
+    "prop",
+    "properties",
+    "values",
+    "lodash"
+  ]
+}
