@@ -35,7 +35,7 @@ describe(".omitDeep()", () => {
     omitDeep().should.eql({});
   });
 
-  it("should return the input unchaged if not an array or an object", () => {
+  it("should return the input unchanged if not an array or an object", () => {
     omitDeep("foo").should.eql("foo");
   });
 
