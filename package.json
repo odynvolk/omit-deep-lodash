@@ -1,7 +1,7 @@
 {
   "name": "omit-deep-lodash",
   "description": "Omit object key/values recursively with lodash as only dependency.",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "homepage": "https://github.com/odynvolk/omit-deep-lodash",
   "author": "Alexi Rahman (https://github.com/odynvolk)",
   "repository": "odynvolk/omit-deep-lodash",

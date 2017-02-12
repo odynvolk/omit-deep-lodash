@@ -5,6 +5,10 @@ Sometimes we need to omit things from an object recursively. [omit-deep](https:/
 in a great manner but hadn't been updated for quite some time and didn't really work with Arrays. omit-deep-lodash solves
 this and uses only lodash as external dependency.
 
+Note! All non-omitted properties that are objects lose their prototype chains and thus their true type. This implementation 
+is thus best used for simple JSON type objects like data objects and not typed object graphs where members have objects 
+with constructors.
+
 ## Install
 
 Install with [npm](https://www.npmjs.com/)
@@ -48,4 +52,3 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 ## License
 
 Released under the MIT license.
-

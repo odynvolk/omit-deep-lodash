@@ -40,7 +40,7 @@ describe(".omitDeep()", () => {
   });
 
   it("should omit keys from objects in arrays", () => {
-    var o = omitDeep([
+    const o = omitDeep([
       {a: "a", b: "b"},
       [
         {a: "a", b: "b"}
@@ -55,7 +55,7 @@ describe(".omitDeep()", () => {
   });
 
   it("should preserve arrays when not omitting objects from them", () => {
-    var o = omitDeep({
+    const o = omitDeep({
       "numbers": ["1", "2"]
     }, "nothing");
 
