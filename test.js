@@ -23,6 +23,15 @@ describe(".omitDeep()", () => {
     o.should.eql({a: "a", c: {e: {g: {c: "c"}}}});
   });
 
+  it("should recursively omit multiple keys, by listing them as arguments", () => {
+    const o = omitDeep({
+      a: "a",
+      b: "b",
+      c: {b: "b", d: "d", e: {b: "b", f: "f", g: {b: "b", c: "c"}}}
+    }, "b", "d", "f");
+    o.should.eql({a: "a", c: {e: {g: {c: "c"}}}});
+  });
+
   it("should omit the given keys.", () => {
     omitDeep({a: "a", b: "b", c: "c"}, ["a", "c"]).should.eql({b: "b"});
   });
