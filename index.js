@@ -20,6 +20,10 @@ module.exports = function omitDeepLodash(input, props) {
     return _.omit(o, props);
   }
 
+  if (arguments.length > 2) {
+    props = Array.prototype.slice.call(arguments).slice(1);
+  }
+
   if (typeof input === "undefined") {
     return {};
   }
