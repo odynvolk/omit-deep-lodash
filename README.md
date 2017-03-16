@@ -24,6 +24,9 @@ const omitDeep = require("omit-deep-lodash");
 
 omitDeep({a: "a", b: "b", c: {b: "b", d: {b: "b", f: "f"}}}, "b");
 //=> {a: "a", c: {d: {f: "f"}}}
+
+omitDeep({a: "a", b: "b", c: {b: "b", d: {b: "b", f: "f"}}}, "a", "b");
+//=> {c: {d: {f: "f"}}}
 ```
 
 ## Related projects
@@ -48,6 +51,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 + [github/jonschlinkert](https://github.com/jonschlinkert)
 + [github/odynvolk](https://github.com/odynvolk)
 + [github.com/mickeek](https://github.com/mickeek)
++ [github.com/InterAl](https://github.com/InterAl)
 
 ## License
 
