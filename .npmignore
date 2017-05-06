@@ -1,6 +1,9 @@
 src/
+test/
 
 .babelrc
+.editorconfig
+.eslintcache
+.eslintignore
+.eslintrc
 .gitignore
-
-test.js

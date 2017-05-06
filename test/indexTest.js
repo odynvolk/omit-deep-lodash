@@ -1,7 +1,4 @@
-"use strict";
-
-const should = require("should");
-const omitDeep = require("./");
+const omitDeep = require("../lib/index");
 
 describe(".omitDeep()", () => {
   it("should recursively omit key passed as a string.", () => {
@@ -71,5 +68,5 @@ describe(".omitDeep()", () => {
     o.should.eql({
       "numbers": ["1", "2"]
     });
-  })
+  });
 });

@@ -1,0 +1,43 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "no-unused-expressions": 0,
+    "new-cap": [
+      2,
+      {
+        "capIsNewExceptions": [
+          "Feature",
+          "Scenario",
+          "Given",
+          "When",
+          "Then",
+          "And",
+          "But",
+          "I",
+          "System",
+          "Describe"
+        ]
+      }
+    ]
+  },
+  "globals": {
+    "describe": false,
+    "xdescribe": false,
+    "it": false,
+    "xit": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false,
+
+    "Feature": false,
+    "Scenario": false,
+    "Given": false,
+    "When": false,
+    "Then": false,
+    "And": false,
+    "But": false
+  }
+}
