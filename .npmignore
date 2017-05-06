@@ -1,0 +1,6 @@
+src/
+
+.babelrc
+.gitignore
+
+test.js
