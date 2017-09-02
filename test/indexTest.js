@@ -69,4 +69,41 @@ describe(".omitDeep()", () => {
       "numbers": ["1", "2"]
     });
   });
+
+  describe("timestamp objects", () => {
+    it("should not remove any of the timestamp objects", () => {
+      const o = omitDeep({
+        "created_at": "2017-08-24T13:04:58.558Z",
+        "updated_at": "2017-08-24T13:04:58.525Z"
+      }, {});
+
+      o.should.eql({
+        "created_at": "2017-08-24T13:04:58.558Z",
+        "updated_at": "2017-08-24T13:04:58.525Z"
+      });
+    });
+
+    it("should remove one of the timestamp objects", () => {
+      const o = omitDeep({
+        "created_at": "2017-08-24T13:04:58.558Z",
+        "updated_at": "2017-08-24T13:04:58.525Z"
+      }, "created_at");
+
+      o.should.eql({
+        "updated_at": "2017-08-24T13:04:58.525Z"
+      });
+    });
+
+    it("should remove all timestamp objects", () => {
+      const o = omitDeep({
+        "created_at": "2017-08-24T13:04:58.558Z",
+        "updated_at": "2017-08-24T13:04:58.525Z"
+      }, [
+        "created_at",
+        "updated_at"
+      ]);
+
+      o.should.eql({});
+    });
+  });
 });
