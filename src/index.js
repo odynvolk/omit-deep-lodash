@@ -2,7 +2,7 @@ const _ = require("lodash");
 
 module.exports = function omitDeepLodash(input, props) {
   function omitDeepOnOwnProps(obj) {
-    if (!_.isArray(obj) && !_.isObject(obj)) {
+    if (!_.isArray(obj) && !_.isPlainObject(obj)) {
       return obj;
     }
 
