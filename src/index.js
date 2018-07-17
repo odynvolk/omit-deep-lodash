@@ -12,7 +12,7 @@ module.exports = function omitDeepLodash(input, props) {
 
     const o = {};
     _.forOwn(obj, (value, key) => {
-      o[key] = omitDeepLodash(value, props);
+      o[key] = !_.isNil(value) ? omitDeepLodash(value, props) : value;
     });
 
     return _.omit(o, props);
