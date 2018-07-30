@@ -2,6 +2,10 @@ const _ = require("lodash");
 
 module.exports = function omitDeepLodash(input, props) {
   function omitDeepOnOwnProps(obj) {
+    if (typeof input === "undefined") {
+      return input;
+    }
+
     if (!_.isArray(obj) && !_.isPlainObject(obj)) {
       return obj;
     }
@@ -20,10 +24,6 @@ module.exports = function omitDeepLodash(input, props) {
 
   if (arguments.length > 2) {
     props = Array.prototype.slice.call(arguments).slice(1);
-  }
-
-  if (typeof input === "undefined") {
-    return {};
   }
 
   if (_.isArray(input)) {

@@ -38,6 +38,8 @@
     "When": false,
     "Then": false,
     "And": false,
-    "But": false
+    "But": false,
+
+    "expect": true,
   }
 }

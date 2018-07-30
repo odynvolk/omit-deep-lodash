@@ -7,4 +7,4 @@ const chai = require("chai");
 chai.config.truncateThreshold = 0;
 chai.config.includeStack = true;
 
-chai.should();
+global.expect = chai.expect;

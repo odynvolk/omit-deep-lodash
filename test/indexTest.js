@@ -3,12 +3,12 @@ const omitDeep = require("../lib/index");
 describe(".omitDeep()", () => {
   it("should recursively omit key passed as a string.", () => {
     const o = omitDeep({a: "a", b: "b", c: {b: "b", d: "d", e: {b: "b", f: "f", g: {b: "b", c: "c"}}}}, "b");
-    o.should.eql({a: "a", c: {d: "d", e: {f: "f", g: {c: "c"}}}});
+    expect(o).to.deep.equal({a: "a", c: {d: "d", e: {f: "f", g: {c: "c"}}}});
   });
 
   it("should recursively omit key passed as an array.", () => {
     const o = omitDeep({a: "a", b: "b", c: {b: "b", d: "d", e: {b: "b", f: "f", g: {b: "b", c: "c"}}}}, ["b"]);
-    o.should.eql({a: "a", c: {d: "d", e: {f: "f", g: {c: "c"}}}});
+    expect(o).to.deep.equal({a: "a", c: {d: "d", e: {f: "f", g: {c: "c"}}}});
   });
 
   it("should recursively omit multiple keys.", () => {
@@ -17,7 +17,7 @@ describe(".omitDeep()", () => {
       b: "b",
       c: {b: "b", d: "d", e: {b: "b", f: "f", g: {b: "b", c: "c"}}}
     }, ["b", "d", "f"]);
-    o.should.eql({a: "a", c: {e: {g: {c: "c"}}}});
+    expect(o).to.deep.equal({a: "a", c: {e: {g: {c: "c"}}}});
   });
 
   it("should recursively omit multiple keys, by listing them as arguments", () => {
@@ -26,23 +26,27 @@ describe(".omitDeep()", () => {
       b: "b",
       c: {b: "b", d: "d", e: {b: "b", f: "f", g: {b: "b", c: "c"}}}
     }, "b", "d", "f");
-    o.should.eql({a: "a", c: {e: {g: {c: "c"}}}});
+    expect(o).to.deep.equal({a: "a", c: {e: {g: {c: "c"}}}});
   });
 
   it("should omit the given keys.", () => {
-    omitDeep({a: "a", b: "b", c: "c"}, ["a", "c"]).should.eql({b: "b"});
+    const o = omitDeep({a: "a", b: "b", c: "c"}, ["a", "c"]);
+    expect(o).to.deep.equal({b: "b"});
   });
 
   it("should return the object if no keys are specified.", () => {
-    omitDeep({a: "a", b: "b", c: "c"}).should.eql({a: "a", b: "b", c: "c"});
+    const o = omitDeep({a: "a", b: "b", c: "c"});
+    expect(o).to.deep.equal({a: "a", b: "b", c: "c"});
   });
 
   it("should return an empty object if no object is specified.", () => {
-    omitDeep().should.eql({});
+    const o = omitDeep(undefined);
+    expect(o).to.be.undefined;
   });
 
   it("should return the input unchanged if not an array or an object", () => {
-    omitDeep("foo").should.eql("foo");
+    const o = omitDeep("foo");
+    expect(o).to.equal("foo");
   });
 
   it("should omit keys from objects in arrays", () => {
@@ -52,7 +56,8 @@ describe(".omitDeep()", () => {
         {a: "a", b: "b"}
       ]
     ], "b");
-    o.should.eql([
+
+    expect(o).to.deep.equal([
       {a: "a"},
       [
         {a: "a"}
@@ -65,7 +70,7 @@ describe(".omitDeep()", () => {
       "numbers": ["1", "2"]
     }, "nothing");
 
-    o.should.eql({
+    expect(o).to.deep.equal({
       "numbers": ["1", "2"]
     });
   });
@@ -77,7 +82,7 @@ describe(".omitDeep()", () => {
         "updated_at": "2017-08-24T13:04:58.525Z"
       }, {});
 
-      o.should.eql({
+      expect(o).to.deep.equal({
         "created_at": "2017-08-24T13:04:58.558Z",
         "updated_at": "2017-08-24T13:04:58.525Z"
       });
@@ -89,7 +94,7 @@ describe(".omitDeep()", () => {
         "updated_at": "2017-08-24T13:04:58.525Z"
       }, "created_at");
 
-      o.should.eql({
+      expect(o).to.deep.equal({
         "updated_at": "2017-08-24T13:04:58.525Z"
       });
     });
@@ -103,7 +108,17 @@ describe(".omitDeep()", () => {
         "updated_at"
       ]);
 
-      o.should.eql({});
+      expect(o).to.deep.equal({});
+    });
+  });
+
+  it("should preserve undefined values", () => {
+    const o = omitDeep({
+      "foo": undefined
+    }, "bar");
+
+    expect(o).to.deep.equal({
+      "foo": undefined
     });
   });
 });
