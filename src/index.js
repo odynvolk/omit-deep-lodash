@@ -1,4 +1,4 @@
-const _ = require("lodash");
+const {omit} = require("lodash");
 
 module.exports = function omitDeepLodash(input, props) {
   function omitDeepOnOwnProps(obj) {
@@ -6,29 +6,37 @@ module.exports = function omitDeepLodash(input, props) {
       return input;
     }
 
-    if (!_.isArray(obj) && !_.isPlainObject(obj)) {
+    if (!Array.isArray(obj) && !isObject(obj)) {
       return obj;
     }
 
-    if (_.isArray(obj)) {
+    if (Array.isArray(obj)) {
       return omitDeepLodash(obj, props);
     }
 
     const o = {};
-    _.forOwn(obj, (value, key) => {
-      o[key] = !_.isNil(value) ? omitDeepLodash(value, props) : value;
-    });
+    for (const [key, value] of Object.entries(obj)) {
+      o[key] = !isNil(value) ? omitDeepLodash(value, props) : value;
+    }
 
-    return _.omit(o, props);
+    return omit(o, props);
   }
 
   if (arguments.length > 2) {
     props = Array.prototype.slice.call(arguments).slice(1);
   }
 
-  if (_.isArray(input)) {
+  if (Array.isArray(input)) {
     return input.map(omitDeepOnOwnProps);
   }
 
   return omitDeepOnOwnProps(input);
 };
+
+function isNil(value) {
+  return value === null || value === undefined;
+}
+
+function isObject(obj) {
+  return Object.prototype.toString.call(obj) === "[object Object]";
+}
