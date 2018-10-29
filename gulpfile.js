@@ -19,4 +19,7 @@ gulp.task("build", build);
 
 gulp.task("clean", () => del([`${dirs.dest}/**`]));
 
-gulp.task("default", ["clean"], build);
+gulp.task("default", gulp.series("clean", "build", (done) => {
+  done();
+}));
+
