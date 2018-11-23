@@ -1,4 +1,4 @@
-const {omit} = require("lodash");
+const omit = require("lodash/omit");
 
 module.exports = function omitDeepLodash(input, props) {
   function omitDeepOnOwnProps(obj) {
