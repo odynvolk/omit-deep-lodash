@@ -1,0 +1,7 @@
+{
+  "extension": ["js"],
+  "package": "./package.json",
+  "timeout": 2000,
+  "reporter": "dot",
+  "recursive": true
+}

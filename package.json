@@ -22,21 +22,20 @@
     "prepublish": "npm run compile"
   },
   "dependencies": {
-    "lodash": "~4.17.11"
+    "lodash": "~4.17.20"
   },
   "devDependencies": {
     "babel-cli": "~6.26.0",
     "babel-core": "~6.26.3",
-    "babel-eslint": "~10.0.1",
+    "babel-eslint": "~10.1.0",
     "babel-preset-es2015": "~6.24.1",
     "babel-preset-stage-1": "~6.24.1",
     "chai": "~4.2.0",
-    "coffee-script": "~1.12.7",
-    "del": "~3.0.0",
-    "eslint": "~5.9.0",
+    "del": "~5.1.0",
+    "eslint": "~7.9.0",
     "gulp": "~4.0.0",
     "gulp-babel": "~7.0.1",
-    "mocha": "~5.2.0",
+    "mocha": "~8.1.3",
     "mocha-cakes-2": "~3.3.0"
   },
   "keywords": [
