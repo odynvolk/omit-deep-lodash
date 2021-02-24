@@ -121,4 +121,27 @@ describe(".omitDeep()", () => {
       "foo": undefined
     });
   });
+
+  it("should not mutate its inputs", () => {
+    const b = {"c": 1, "o": 1};
+    const original = {"a": 1, "b": b, "o": 1};
+
+    const omitted = omitDeep(original, "o");
+    expect(omitted).to.deep.equal({
+      "a": 1,
+      "b": {
+        "c": 1,
+      },
+    });
+    expect(original).to.deep.equal({
+      "a": 1,
+      "o": 1,
+      "b": {
+        "c": 1,
+        "o": 1,
+      },
+    });
+    expect(omitted).to.not.equal(original);
+    expect(omitted.b).to.not.equal(b);
+  });
 });
