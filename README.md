@@ -56,6 +56,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 + [github.com/mickeek](https://github.com/mickeek)
 + [github.com/InterAl](https://github.com/InterAl)
 + [github.com/mathianasj](https://github.com/mathianasj)
++ [github.com/spawnia](https://github.com/spawnia)
 
 ## License
 
